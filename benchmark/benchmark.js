@@ -5,38 +5,42 @@ function name (filename) {
   return path.basename(path.dirname(filename)) + '/' + path.basename(filename, '.js')
 }
 
-var sample = [1, [2, [3, [4], 3], 2], 1]
+module.exports = function() {
 
-var flattenSuite = new Suite({
-  cwd: __dirname,
-  fixtures: 'fixtures/*.js',
-  code: 'code/flatten/*.js',
-  name: name,
-  sample: [sample]
-})
+  var sample = [1, [2, [3, [4], 3], 2], 1]
 
-flattenSuite.run(function (fixture) {
-  return [fixture]
-})
+  var flattenSuite = new Suite({
+    cwd: __dirname,
+    fixtures: 'fixtures/*.js',
+    code: 'code/flatten/*.js',
+    name: name,
+    sample: [sample]
+  })
 
-var argsSuite = new Suite({
-  cwd: __dirname,
-  fixtures: 'fixtures/*.js',
-  code: 'code/arguments/*.js',
-  name: name,
-  sample: sample
-})
+  flattenSuite.run(function (fixture) {
+    return [fixture]
+  })
 
-argsSuite.run()
+  var argsSuite = new Suite({
+    cwd: __dirname,
+    fixtures: 'fixtures/*.js',
+    code: 'code/arguments/*.js',
+    name: name,
+    sample: sample
+  })
 
-var depthSuite = new Suite({
-  cwd: __dirname,
-  fixtures: 'fixtures/*.js',
-  code: 'code/depth/*.js',
-  name: name,
-  sample: [sample, 2]
-})
+  argsSuite.run()
 
-depthSuite.run(function (fixture) {
-  return [fixture, 4]
-})
+  var depthSuite = new Suite({
+    cwd: __dirname,
+    fixtures: 'fixtures/*.js',
+    code: 'code/depth/*.js',
+    name: name,
+    sample: [sample, 2]
+  })
+
+  depthSuite.run(function (fixture) {
+    return [fixture, 4]
+  })
+
+}
