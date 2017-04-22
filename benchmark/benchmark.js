@@ -5,8 +5,7 @@ function name (filename) {
   return path.basename(path.dirname(filename)) + '/' + path.basename(filename, '.js')
 }
 
-module.exports = function() {
-
+module.exports = function () {
   var sample = [1, [2, [3, [4], 3], 2], 1]
 
   var flattenSuite = new Suite({
@@ -42,5 +41,4 @@ module.exports = function() {
   depthSuite.run(function (fixture) {
     return [fixture, 4]
   })
-
 }
