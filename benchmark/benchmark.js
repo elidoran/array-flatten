@@ -10,19 +10,17 @@ module.exports = function () {
 
   var flattenSuite = new Suite({
     cwd: __dirname,
-    fixtures: 'fixtures/*.js',
+    fixtures: 'fixtures/flatten/*.js',
     code: 'code/flatten/*.js',
     name: name,
     sample: [sample]
   })
 
-  flattenSuite.run(function (fixture) {
-    return [fixture]
-  })
+  flattenSuite.run()
 
   var argsSuite = new Suite({
     cwd: __dirname,
-    fixtures: 'fixtures/*.js',
+    fixtures: 'fixtures/arguments/*.js',
     code: 'code/arguments/*.js',
     name: name,
     sample: sample
@@ -32,13 +30,11 @@ module.exports = function () {
 
   var depthSuite = new Suite({
     cwd: __dirname,
-    fixtures: 'fixtures/*.js',
+    fixtures: 'fixtures/depth/*.js',
     code: 'code/depth/*.js',
     name: name,
     sample: [sample, 2]
   })
 
-  depthSuite.run(function (fixture) {
-    return [fixture, 4]
-  })
+  depthSuite.run()
 }
