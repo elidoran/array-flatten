@@ -5,8 +5,7 @@ var ask = require('readline').createInterface({
   output: process.stdout
 })
 
-console.log('array-flatten benchmark running as', process.pid,
-  ~process.execArgv.indexOf('--turbo') ? '- turbo' : '')
+console.log('array-flatten benchmark running as', process.pid)
 
 ask.question('begin? (y/N)  ', function (answer) {
   ask.close()
